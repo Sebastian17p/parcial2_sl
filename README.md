@@ -1,1 +1,0 @@
-# parcial2_sl
