@@ -17,7 +17,7 @@ Se edita las siguientes lineas:
 :PREROUTING ACCEPT [0:0]
 :POSTROUTING ACCEPT [0:0]
 # Forward traffic from port 80 to port 80.
--A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.50.2:80  (puerto 80:para las paginas)
+-A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.50.2:80  (puerto 80 para las paginas)
 # Forward traffic from port 21 to port 21. (puerto 21 para hacer la comunicacion es decir subir archivos)
 -A PREROUTING -i eth3 -p tcp --dport 21 -j DNAT --to-destination 192.168.50.2:21
 -A PREROUTING -i eth3 -p tcp --dport 40000:50000 -j DNAT --to-destination 192.168.50.2 (puerto 40000 y 50000 para comunicar la ip publica con el servidor y cliente)
@@ -41,17 +41,14 @@ crear un usuario con: sudo adduser ftpuser
 sudo vim /etc/ssh/sshd_confid
 agregamos Denyusersftpuserjuan (para denegar el cliente)
 ssh ftpuser@11.11.8.143 (prueba para ver que deniega)
+#Punto 2
+vim /etc/systemd/resolved.conf
 vim /etc/networkmanager/conf.d/10-dns.systemctl-resolved (para que no se vayan a cambiar las ip de los dns colocados anteriormente)
 systemctl enable systemd - resolved 
 systemctl status systemd - resolved
 wyresharck
 meterse a wiffi
 utilizar tcp.port==853
-
 Desde el servidor dar nslookup youtube.com
-
-#PUNTO 2
-vim /etc/systemctl/resolved.conf
-adentro agregar: los dns de google 1.1.1.1 8.8.8.8
-y Fallbackdns= para colocar los dns de respaldo
+visualizar wyresharck
 
